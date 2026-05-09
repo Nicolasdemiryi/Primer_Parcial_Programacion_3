@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store - Catálogo</title>
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+    <header>
+        <h1>Food Store</h1>
+        <nav>
+            <a href="../cart/cart.html">🛒 Ver Carrito</a>
+        </nav>
+    </header>
+
+    <div style="display: flex;"> <aside>
+            <h3>Categorías</h3>
+            <div id="categorias-contenedor">
+                </div>
+        </aside>
+
+        <main style="flex-grow: 1;">
+            <section id="busqueda" style="padding: 20px;">
+                <input type="text" id="input-busqueda" placeholder="🔍 Buscar producto..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+            </section>
+
+            <section id="contenedor-productos" class="grid-productos">
+                </section>
+        </main>
+    </div>
+
+    <script type="module" src="./home.ts"></script>
+</body>
+</html>
