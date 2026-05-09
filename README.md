@@ -1,83 +1,39 @@
-# Proyecto: Protección de Rutas (Educativo)
+# 🍕 TPI Food Store - Sistema de Gestión de Pedidos/ E-commerce
 
-## ✍️ Descripción
-
-Este es un proyecto de demostración creado con fines educativos para ilustrar un mecanismo básico de protección de rutas en el lado del cliente (frontend) utilizando **Vite** y **TypeScript**.
-
-El objetivo es mostrar cómo se puede restringir el acceso a ciertas páginas según el rol de un usuario (por ejemplo, `ADMIN` o `CLIENT`).
-
----
-
-## ⚠️ ¡Importante! Nivel de Seguridad
-
-La protección de rutas implementada en este proyecto **NO ES SEGURA** y no debe utilizarse en un entorno de producción.
-
-- **Razón**: La lógica de autenticación se basa en datos guardados en `localStorage` en el navegador del usuario.
-- **Riesgo**: Cualquier usuario con conocimientos técnicos básicos puede abrir las herramientas de desarrollador del navegador para inspeccionar, modificar o eliminar los datos de `localStorage`, obteniendo así acceso no autorizado a rutas protegidas.
-
-Este enfoque es útil únicamente para fines de aprendizaje y para prototipos de bajo riesgo. La seguridad real debe implementarse en el **backend**.
+## 🎓 Universidad Tecnológica Nacional (UTN)
+**Materia:** Programación III  
+**Alumno:** Nicolas Demiryi  
+**Tecnologías:** TypeScript + Vite + CSS3 + HTML
 
 ---
 
-## 🚀 Instalación y Uso
+## 📝 Descripción del Proyecto
+Este proyecto consiste en una aplicación web robusta para la gestión de pedidos de una tienda de comidas. Se enfoca en la implementación de **TypeScript** para garantizar un tipado fuerte, el uso de **Vite** como empaquetador de alto rendimiento y una arquitectura modular basada en componentes y tipos de datos definidos.
 
-Se recomienda usar `pnpm` como gestor de paquetes para mayor eficiencia en el manejo de dependencias.
+## 🚀 Funcionalidades Principales
 
-### 1. Instalar pnpm
+* **Sistema de Autenticación:** Login y Registro de usuarios con redirección basada en roles (Admin/Client).
+* **Catálogo Dinámico:** Renderizado de productos desde una base de datos simulada en TS.
+* **Filtros Avanzados:** * Buscador por nombre en tiempo real.
+    * Filtrado por categorías (Pizzas, Hamburguesas, etc.) utilizando métodos de array (`filter`, `some`).
+* **Gestión de Carrito:**
+    * Adición de productos con persistencia en `localStorage`.
+    * Cálculo dinámico de totales.
+* **Arquitectura Escalable:** Uso de interfaces y tipos para estandarizar los datos del sistema.
 
-Si no tienes `pnpm` instalado, puedes hacerlo fácilmente a través de `npm` (que viene con Node.js) ejecutando el siguiente comando en tu terminal:
+## 🛠️ Tecnologías Utilizadas
 
-```bash
-npm install -g pnpm
-```
+* **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+* **Herramienta de Construcción:** [Vite](https://vitejs.dev/)
+* **Estilos:** CSS3 con variables personalizadas y diseño responsivo.
+* **Persistencia:** LocalStorage Web API.
 
-### 2. Instalar Dependencias del Proyecto
+## 📂 Estructura del Proyecto
 
-Una vez en la carpeta raíz del proyecto, instala las dependencias necesarias con `pnpm`:
-
-```bash
-pnpm install
-```
-
-### 3. Ejecutar el Proyecto
-
-Para iniciar el servidor de desarrollo de Vite, ejecuta:
-
-```bash
-pnpm dev
-```
-
-La aplicación estará disponible en la URL que aparezca en la terminal (generalmente `http://localhost:5173`).
-
----
-
-## ⚙️ ¿Cómo Funciona la Protección de Rutas?
-
-El mecanismo es simple y se gestiona desde el código TypeScript en la carpeta `src/utils`:
-
-1.  **Inicio de Sesión**: Cuando un usuario se "loguea", su información (incluido su rol) se guarda como un string JSON en `localStorage`.
-2.  **Carga de Página Protegida**: Cada vez que se intenta cargar una página protegida (ej. la página de Administrador), se ejecuta un script de verificación (`checkAuhtUser` en `src/utils/auth.ts`).
-3.  **Verificación**: El script comprueba:
-    - Si existe un usuario en `localStorage`. Si no, redirige al login.
-    - Si el rol del usuario guardado coincide con el rol requerido para acceder a esa página. Si no coincide, lo redirige a una página de acceso denegado o a su "home" correspondiente.
-4.  **Cierre de Sesión (Logout)**: Al cerrar sesión, la información del usuario se elimina de `localStorage`.
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-/
-├── src/
-│   ├── pages/                # Contiene las páginas de la aplicación
-│   │   ├── admin/            # Páginas solo para administradores
-│   │   ├── auth/             # Páginas de autenticación (login, registro)
-│   │   └── client/           # Páginas solo para clientes
-│   ├── types/                # Define las interfaces y tipos (IUser, Rol)
-│   └── utils/                # Lógica reutilizable
-│       ├── auth.ts           # Función principal de verificación de rol y sesión
-│       ├── localStorage.ts   # Funciones para leer/escribir en localStorage
-│       └── navigate.ts       # Función para redirigir al usuario
-├── package.json              # Dependencias y scripts
-└── README.md                 # Este archivo
-```
+```text
+src/
+├── pages/            # Vistas principales (Login, Home, Cart, Admin)
+├── types/            # Interfaces de TypeScript (IProduct, ICategory, etc.)
+├── data/             # Base de datos simulada (data.ts)
+├── utils/            # Funciones de ayuda (Validaciones, Auth)
+└── main.ts           # Punto de entrada y lógica de ruteo
