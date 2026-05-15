@@ -14,19 +14,21 @@
         </nav>
     </header>
 
-    <div style="display: flex;"> <aside>
+    <div style="display: flex;">
+        <aside>
             <h3>Categorías</h3>
-            <div id="categorias-contenedor">
-                </div>
+            <div id="categorias-contenedor"></div>
         </aside>
 
         <main style="flex-grow: 1;">
-            <section id="busqueda" style="padding: 20px;">
-                <input type="text" id="input-busqueda" placeholder="🔍 Buscar producto..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+            <section id="busqueda" style="padding: 20px; display: flex; gap: 10px;">
+                <input type="text" id="input-busqueda" placeholder="🔍 Buscar producto..." 
+                    style="flex-grow: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                <button id="btn-limpiar" style="padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                    ✖ Limpiar
+                </button>
             </section>
-
-            <section id="contenedor-productos" class="grid-productos">
-                </section>
+            <section id="contenedor-productos" class="grid-productos"></section>
         </main>
     </div>
 

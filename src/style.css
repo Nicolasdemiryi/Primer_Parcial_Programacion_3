@@ -64,3 +64,14 @@ body {
     cursor: pointer;
     border-radius: 20px;
 }
+.btn-filtro.activo {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-filtro.activo {
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: bold;
+}
